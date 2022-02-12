@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #define MAX_HEALTH 100.0;
 using namespace std;
 
@@ -378,12 +379,22 @@ public:
 
     // Метод атаки
     void attack(Character* attacked) override {
-        if (weapon.getCartriges() > 0) {
-            attacked->attacked(weapon.getDamage(), 0.0, 0, 0, weapon.getCartriges(), 0, 0, technics, power, 1);
+        int random = (rand() % 100 + 1);
+        if (random > 3) {
+            if (weapon.getCartriges() > 0) {
+                attacked->attacked(weapon.getDamage(), 0.0, 0, 0, weapon.getCartriges(), 0, 0, technics, power, 1);
+                weapon.setCartriges(weapon.getCartriges() - 1);
+                technics++;
+            };
+        }
+        else {
+            attacked->setHealth(0);
             weapon.setCartriges(weapon.getCartriges() - 1);
+            cout << "[Console] Critical damage " << endl;
             technics++;
         };
     };
+
 
     // Метод получения урона
     void attacked(double _damage, double _extraDamage, int _time, int _arrows,
@@ -468,9 +479,17 @@ public:
 
     // Метод атаки
     void attack(Character* attacked) {
-        if (weapon.getArrows() > 0) {
-            attacked->attacked(weapon.getDamage(), weapon.getExtraDamage(), weapon.getTime(), weapon.getArrows(), 0, 0, dexterity, 0, power, 2);
+        int random = (rand() % 100 + 1);
+        if (random > 3) {
+            if (weapon.getArrows() > 0) {
+                attacked->attacked(weapon.getDamage(), weapon.getExtraDamage(), weapon.getTime(), weapon.getArrows(), 0, 0, dexterity, 0, power, 2);
+                weapon.setArrows(weapon.getArrows() - 1);
+            };
+        }
+        else {
+            attacked->setHealth(0);
             weapon.setArrows(weapon.getArrows() - 1);
+            cout << "[Console] Critical damage " << endl;
         };
     };
     
@@ -559,8 +578,16 @@ public:
     
     // Метод атаки
     void attack(Character* attacked) override {
-        attacked->attacked(weapon.getDamage(), 0.0, 0, 0, 0, weapon.getStrenght(), 0, 0, power, 3);
-        weapon.setStrenght(weapon.getStrenght() - 4);
+        int random = (rand() % 100 + 1);
+        if (random > 3) {
+            attacked->attacked(weapon.getDamage(), 0.0, 0, 0, 0, weapon.getStrenght(), 0, 0, power, 3);
+            weapon.setStrenght(weapon.getStrenght() - 4);
+        }
+        else {
+            attacked->setHealth(0);
+            weapon.setStrenght(weapon.getStrenght() - 4);
+            cout << "[Console] Critical damage " << endl;
+        }
     };
 
     // Метод получения урона

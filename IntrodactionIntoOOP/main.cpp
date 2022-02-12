@@ -2,9 +2,9 @@
 using namespace std;
 
 int main() {
+	srand(time(NULL));
 	int win = 0, count = 0;
 	//cout << "Tests passeds: " << tests() << "/2" << endl; (не доделан)
-
 	Warrior player_1;
 	Human player_2;
 	while (win != 1) {
@@ -15,10 +15,10 @@ int main() {
 		player_2.print_character_info();
 		cout << "-------------------------Player #2------------------------\n";
 		cout << "[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]\n";
-		if (player_1.getHealth() > 0 && win == 0) { player_2.attack(&player_1); }
-		if (player_1.getHealth() < 0 || player_2.getHealth() < 0) { win = 1; };
-		if (player_2.getHealth() > 0 && win == 0) { player_1.attack(&player_2); }
-		if (player_1.getHealth() < 0 || player_2.getHealth() < 0) { win = 1; };
+		if (player_1.getHealth() > 0 && win == 0 && player_2.getHealth() > 0) { player_2.attack(&player_1); }
+		if (player_1.getHealth() <= 0 || player_2.getHealth() <= 0) { win = 1; };
+		if (player_2.getHealth() > 0 && win == 0 && player_1.getHealth() > 0) { player_1.attack(&player_2); }
+		if (player_1.getHealth() <= 0 || player_2.getHealth() <= 0) { win = 1; };
 		count++;
 	};
 	cout << "\n\nFinal results!\n\n";
