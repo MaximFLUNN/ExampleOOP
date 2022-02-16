@@ -1,5 +1,4 @@
 ﻿#include "Game.h"
-using namespace std;
 //int tests() { (не доделан)
 //	int passeds = 0;
 //	cout << "Start tests!" << endl;
@@ -29,4 +28,3 @@ using namespace std;
 //	}
 //	return passeds;
 //}
-

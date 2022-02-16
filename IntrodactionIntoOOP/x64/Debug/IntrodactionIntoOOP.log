@@ -1,15 +1,3 @@
-﻿  Game.cpp
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(195,20): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(385,106): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(485,139): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(558,29): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(583,94): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-  main.cpp
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(195,20): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(385,106): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(485,139): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(558,29): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\Game.h(583,94): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\main.cpp(5,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Создание кода...
-  IntrodactionIntoOOP.vcxproj -> C:\Users\77777\Desktop\Project station v2\ExampleOOP-realization\x64\Debug\IntrodactionIntoOOP.exe
+﻿  main.cpp
+D:\Project_station_v3\Project station v2\ExampleOOP-realization\IntrodactionIntoOOP\main.cpp(4,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  IntrodactionIntoOOP.vcxproj -> D:\Project_station_v3\Project station v2\ExampleOOP-realization\x64\Debug\IntrodactionIntoOOP.exe

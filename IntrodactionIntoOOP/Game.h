@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#define MAX_HEALTH 100.0;
-using namespace std;
+#define MAX_HEALTH 100.0
 
 /*
 1. различие между классом и структурой - возможность сокрытия информации, контролируемый доступ - сеттеры и геттеры.
@@ -17,10 +16,11 @@ using namespace std;
 8. реализуете нужный функционал!
 */
 
+
 // Общий класс оружий
 class Weapon {
 protected:
-    string name;
+    std::string name;
     double damage;
 
 public:
@@ -31,7 +31,7 @@ public:
     };
 
     // Конструктор инициализации
-    Weapon(string _name, double _damage) {
+    Weapon(std::string _name, double _damage) {
         name = _name;
         damage = _damage;
     };
@@ -43,10 +43,10 @@ public:
     };
 
     // Метод получения имени (Геттер)
-    string getName() { return name; };
+    std::string getName() { return name; };
 
     // Метод установки имени (Сеттер)
-    void setName(string _name) {
+    void setName(std::string _name) {
         name = _name;
     };
 
@@ -56,7 +56,7 @@ public:
     // Метод установки урона (Сеттер)
     void setDamage(double _damage) {
         if (_damage < 0 || _damage > 50) {
-            cout << "[warning] invalid values entered" << endl;
+            std::cout << "[warning] invalid values entered" << std::endl;
             damage = 1;
         }
         else
@@ -65,15 +65,15 @@ public:
 
     // Метод вывода информации 
     void print_weapon_info() {
-        cout << "Weapon name: " << name << endl 
-        << "Weapon damage: " << damage << endl;
+        std::cout << "Weapon name: " << name << std::endl
+            << "Weapon damage: " << damage << std::endl;
     };
 };
 
 // Класс оружия Gun -> Human
 class Gun : public Weapon {
 private:
-  int cartridges;
+    int cartridges;
 
 public:
 
@@ -85,7 +85,7 @@ public:
     };
 
     // Конструктор инициализации
-    Gun(string _name, double _damage, int _cartriges) {
+    Gun(std::string _name, double _damage, int _cartriges) {
         name = _name;
         damage = _damage;
         cartridges = _cartriges;
@@ -109,16 +109,16 @@ public:
     // Метод вывода информации
     void print_weapon_info() {
         Weapon::print_weapon_info();
-        cout << "Weapon cartridges: " << cartridges << endl;
+        std::cout << "Weapon cartridges: " << cartridges << std::endl;
     };
 };
 
 // Класс оружия Bow -> Archer
 class Bow : public Weapon {
 private:
-  int arrows;
-  double extraDamage;
-  int time;
+    int arrows;
+    double extraDamage;
+    int time;
 
 public:
 
@@ -132,7 +132,7 @@ public:
     };
 
     // Конструктор инициализации
-    Bow(string _name, double _damage, int _arrows, double _extraDamage, int _time) {
+    Bow(std::string _name, double _damage, int _arrows, double _extraDamage, int _time) {
         name = _name;
         damage = _damage;
         arrows = _arrows;
@@ -176,9 +176,9 @@ public:
     // Метод вывода информации
     void print_weapon_info() {
         Weapon::print_weapon_info();
-        cout << "Weapon arrows: " << arrows << endl
-            << "Weapon extra damage: " << extraDamage << endl
-            << "Weapon time: " << time << endl;
+        std::cout << "Weapon arrows: " << arrows << std::endl
+            << "Weapon extra damage: " << extraDamage << std::endl
+            << "Weapon time: " << time << std::endl;
     };
 };
 
@@ -192,11 +192,11 @@ public:
     Axe() {
         name = "Gorehowl";
         damage = 30.0;
-        strenght = 100.0;
+        strenght = 100;
     };
 
     // Конструктор инициализации
-    Axe(string _name, double _damage, int _strenght) {
+    Axe(std::string _name, double _damage, int _strenght) {
         name = _name;
         damage = _damage;
         strenght = _strenght;
@@ -220,7 +220,7 @@ public:
     // Метод вывода информации
     void print_weapon_info() {
         Weapon::print_weapon_info();
-        cout << "Strength: " << strenght << endl;
+        std::cout << "Strength: " << strenght << std::endl;
     };
 
 };
@@ -228,90 +228,95 @@ public:
 // Общий класс персонажей 
 class Character {
 protected:
-  string name;
-  string  gender;
-  double power;
-  double health;
+    std::string name;
+    std::string  gender;
+    double power;
+    double health;
 
 public:
-  // Конструктор по умолчанию
-  Character() {
-    name = "Bob";
-    gender = "male";
-    power = 1.0;
-    health = MAX_HEALTH;
-  };
+    // Конструктор по умолчанию
+    Character() {
+        name = "Bob";
+        gender = "male";
+        power = 1.0;
+        health = MAX_HEALTH;
+    };
 
-  // Конструктор инициализации
-  Character(string _name, string  _gender, double _power, double _health) {
-    name = _name;
-    gender = _gender;
-    power = _power;
-    health = _health;
-  };
+    // Конструктор инициализации
+    Character(std::string _name, std::string  _gender, double _power, double _health) {
+        name = _name;
+        gender = _gender;
+        power = _power;
+        health = _health;
+    };
 
-  // Конструктор копирования
-  Character(const Character& w) {
-    name = w.name;
-    gender = w.gender;
-    power = w.power;
-    health = w.health;
-  };
+    // Конструктор копирования
+    Character(const Character& w) {
+        name = w.name;
+        gender = w.gender;
+        power = w.power;
+        health = w.health;
+    };
 
-  // Вывод информации
-  virtual void print_character_info() = 0;
+    // Вывод информации
+    virtual void print_character_info() = 0;
 
-  // Метод получения имени (Геттер)
-  string getName() { return name; };
+    // Метод получения имени (Геттер)
+    std::string getName() { return name; };
 
-  // Метод установки имени (Сеттер)
-  void setName(string _name) {
-      name = _name;
-  };
+    // Метод установки имени (Сеттер)
+    void setName(std::string _name) {
+        name = _name;
+    };
 
-  // Метод получения гендера (Геттер)
-  string getGender() { return gender; };
+    // Метод получения гендера (Геттер)
+    std::string getGender() { return gender; };
 
-  // Метод установки гендера (Сеттер)
-  void setGender(string _gender) {
-      gender = _gender;
-  };
+    // Метод установки гендера (Сеттер)
+    void setGender(std::string _gender) {
+        gender = _gender;
+    };
 
-  // Метод получения мощности (Геттер)
-  double getPower() { return power; };
+    // Метод получения мощности (Геттер)
+    double getPower() { return power; };
 
-  // Метод установки можности (Сеттер)
-  void setPower(double _power) {
-      power = _power;
-  };
+    // Метод установки можности (Сеттер)
+    void setPower(double _power) {
+        power = _power;
+    };
 
-  // Метод получения здоровья (Геттер)
-  double getHealth() { return health; };
+    // Метод получения здоровья (Геттер)
+    double getHealth() { return health; };
 
-  // Метод установки здоровья (Сеттер)
-  void setHealth(double _health) {
-      health = _health;
-  };
+    // Метод установки здоровья (Сеттер)
+    void setHealth(double _health) {
+        health = _health;
+    };
 
-  // Метод восстановления здровья
-  void healing() {
-      health = MAX_HEALTH;
-  }
+    // Метод восстановления здровья
+    void healing() {
+        health = MAX_HEALTH;
+    }
 
-  // Метод атаки (частичная реализация)
-  virtual void attack(Character *attacked) = 0;
+    // Метод атаки (частичная реализация)
+    virtual void attack(Character* attacked) = 0;
 
-  // Метод получения урона
-  virtual void attacked(double _damage,
-      double _extraDamage, 
-      int _time,
-      int _arrows,
-      int _cartridges,
-      int _strenght,
-      int _dexterity,
-      int _technics,
-      int power,
-      int type) = 0;
+    // Метод получения урона
+    virtual void attacked(double _damage) = 0;
+
+    // Рассчёт шанса уклонения
+    bool dodge_chance(int _dexterity) {
+        if ((rand() % 100 + 1) > 3 * _dexterity) { return false; }
+        else { return true; }
+    }
+
+
+    // Рассчёт шанса критической атаки
+    bool critical_hit_chance() {
+        if ((rand() % 100 + 1) > 3) { return false; }
+        else { return true; }
+    }
+
 };
 
 // Класс персонажа Human -> Gun
@@ -331,8 +336,8 @@ public:
     };
 
     // Конструктор инициализации расширенный
-    Human(string _name, string  _gender, double _power,
-        double _health, int _technics, string _nameWeapon, double _damage,
+    Human(std::string _name, std::string  _gender, double _power,
+        double _health, int _technics, std::string _nameWeapon, double _damage,
         int _cartridges) : Character(_name, _gender, _power, _health) {
         weapon.setName(_nameWeapon);
         weapon.setDamage(_damage);
@@ -342,7 +347,7 @@ public:
     };
 
     // Конструктор инициализации
-    Human(string _name, string  _gender, double _power,
+    Human(std::string _name, std::string  _gender, double _power,
         double _health, int _technics, Gun _weapon)
         : Character(_name, _gender, _power, _health) {
         technics = _technics;
@@ -366,11 +371,11 @@ public:
     // Метод вывода информации
     void print_character_info() override {
         double tmp;
-        cout << "Name: " << name << endl <<
-            "Gender: " << gender << endl <<
-            "Power: " << power << endl <<
-            "Health: " << health << endl << 
-            "Technics: " << technics << endl;
+        std::cout << "Name: " << name << std::endl <<
+            "Gender: " << gender << std::endl <<
+            "Power: " << power << std::endl <<
+            "Health: " << health << std::endl <<
+            "Technics: " << technics << std::endl;
         tmp = weapon.getDamage();
         weapon.setDamage(tmp + (1.175 * technics));
         weapon.print_weapon_info();
@@ -379,46 +384,32 @@ public:
 
     // Метод атаки
     void attack(Character* attacked) override {
-        int random = (rand() % 100 + 1);
-        if (random > 3) {
-            if (weapon.getCartriges() > 0) {
-                attacked->attacked(weapon.getDamage(), 0.0, 0, 0, weapon.getCartriges(), 0, 0, technics, power, 1);
+        if (weapon.getCartriges() > 0) {
+            if (critical_hit_chance()) {
+                attacked->setHealth(0);
+                weapon.setCartriges(weapon.getCartriges() - 1);
+                std::cout << "[Console] Critical damage " << std::endl;
+                technics++;
+            }
+            else {
+                attacked->attacked(weapon.getDamage() + (1.175 * technics));
                 weapon.setCartriges(weapon.getCartriges() - 1);
                 technics++;
-            };
+            }
         }
-        else {
-            attacked->setHealth(0);
-            weapon.setCartriges(weapon.getCartriges() - 1);
-            cout << "[Console] Critical damage " << endl;
-            technics++;
-        };
     };
-
+    
 
     // Метод получения урона
-    void attacked(double _damage, double _extraDamage, int _time, int _arrows,
-        int _cartridges, int _strenght, int _dexterity, int _technics, int power, int type) override {
-        if (type == 1) {
-            _damage += (1.175 * _technics);
-        }
-        else if (type == 3) {
-            _damage = _damage / 100 * _strenght;
-        };
-        health -= _damage;
-        if (type == 1 && _strenght > 50) {
-            _strenght -= 4;
-        }
-        else if (type == 3) {
-            _technics++;
-        };
+    void attacked(double _damage) override {
+        health -= _damage - (0.25 * power);
     };
 };
 
 // Класс песонажа Archer -> Bow
-class Archer : public Character{
+class Archer : public Character {
 private:
-  int dexterity;
+    int dexterity;
 
 public:
     Bow weapon;
@@ -432,9 +423,9 @@ public:
     };
 
     // Конструктор инициализации расширенный
-    Archer(string _name, string  _gender, double _power,
-        double _health, int _dexterity, string _nameWeapon, double _damage,
-        int _arrows, double _extraDamage, int _time) 
+    Archer(std::string _name, std::string  _gender, double _power,
+        double _health, int _dexterity, std::string _nameWeapon, double _damage,
+        int _arrows, double _extraDamage, int _time)
         : Character(_name, _gender, _power, _health) {
         weapon.setName(_nameWeapon);
         weapon.setDamage(_damage);
@@ -446,7 +437,7 @@ public:
     };
 
     // Конструктор инициализации
-    Archer(string _name, string  _gender, double _power,
+    Archer(std::string _name, std::string  _gender, double _power,
         double _health, int _dexterity, Bow _weapon)
         : Character(_name, _gender, _power, _health) {
         dexterity = _dexterity;
@@ -454,7 +445,7 @@ public:
     };
 
     // Конструктор копирования
-    Archer(const Archer& a) : Character(a.name, a.gender, a.power, a.health){
+    Archer(const Archer& a) : Character(a.name, a.gender, a.power, a.health) {
         dexterity = a.dexterity;
         weapon = a.weapon;
     }
@@ -469,46 +460,32 @@ public:
 
     // Метод вывода информации
     void print_character_info() {
-        cout << "Name: " << name << endl <<
-            "Gender: " << gender << endl <<
-            "Power: " << power << endl <<
-            "Health: " << health << endl << 
-            "Dexterity: " << dexterity << endl;
+        std::cout << "Name: " << name << std::endl <<
+            "Gender: " << gender << std::endl <<
+            "Power: " << power << std::endl <<
+            "Health: " << health << std::endl <<
+            "Dexterity: " << dexterity << std::endl;
         weapon.print_weapon_info();
     };
 
     // Метод атаки
     void attack(Character* attacked) {
-        int random = (rand() % 100 + 1);
-        if (random > 3) {
-            if (weapon.getArrows() > 0) {
-                attacked->attacked(weapon.getDamage(), weapon.getExtraDamage(), weapon.getTime(), weapon.getArrows(), 0, 0, dexterity, 0, power, 2);
+        if (weapon.getArrows() > 0) {
+            if (critical_hit_chance()) {
+                attacked->setHealth(0);
                 weapon.setArrows(weapon.getArrows() - 1);
-            };
+                std::cout << "[Console] Critical damage " << std::endl;
+            }
+            else {
+                attacked->attacked(weapon.getDamage()/* + временный урон */);
+                weapon.setArrows(weapon.getArrows() - 1);
+            }
         }
-        else {
-            attacked->setHealth(0);
-            weapon.setArrows(weapon.getArrows() - 1);
-            cout << "[Console] Critical damage " << endl;
-        };
     };
-    
+
     // Метод получения урона
-    void attacked(double _damage, double _extraDamage, int _time, int _arrows,
-        int _cartridges, int _strenght, int _dexterity, int _technics, int power, int type) override {
-        if (type == 1) {
-            _damage += (1.175 * _technics);
-        }
-        else if (type == 3) {
-            _damage = _damage / 100 * _strenght;
-        };
-        health -= _damage;
-        if (type == 1 && _strenght > 50) {
-            _strenght -= 4;
-        }
-        else if (type == 3) {
-            _technics++;
-        };
+    void attacked(double _damage) override {
+        health -= dodge_chance(dexterity) * (_damage - (0.25 * power));
     };
 };
 
@@ -529,8 +506,8 @@ public:
     };
 
     // Конструктор инициализации расширенный
-    Warrior(string _name, string  _gender, double _power,
-        double _health, string _nameWeapon, double _damage, int _strenght,
+    Warrior(std::string _name, std::string  _gender, double _power,
+        double _health, std::string _nameWeapon, double _damage, int _strenght,
         double _armor) : Character(_name, _gender, _power, _health) {
 
         weapon.setName(_nameWeapon);
@@ -541,7 +518,7 @@ public:
     };
 
     // Конструктор инициализации
-    Warrior(string _name, string  _gender, double _power,
+    Warrior(std::string _name, std::string  _gender, double _power,
         double _health, double _armor, Axe _weapon)
         : Character(_name, _gender, _power, _health) {
         weapon = _weapon;
@@ -555,7 +532,7 @@ public:
     };
 
     // Метод получения Брони
-    int getArmor() { return armor; };
+    double getArmor() { return armor; };
 
     // Метод установки Брони
     void setArmor(int _armor) {
@@ -565,11 +542,11 @@ public:
     // Метод вывода информации
     void print_character_info() {
         double tmp;
-        cout << "Name: " << name << endl <<
-            "Gender: " << gender << endl <<
-            "Power: " << power << endl <<
-            "Health: " << health << endl <<
-            "Armor: " << armor << endl;
+        std::cout << "Name: " << name << std::endl <<
+            "Gender: " << gender << std::endl <<
+            "Power: " << power << std::endl <<
+            "Health: " << health << std::endl <<
+            "Armor: " << armor << std::endl;
         tmp = weapon.getDamage();
         weapon.setDamage(tmp / 100 * weapon.getStrenght());
         weapon.print_weapon_info();
@@ -578,41 +555,36 @@ public:
     
     // Метод атаки
     void attack(Character* attacked) override {
-        int random = (rand() % 100 + 1);
-        if (random > 3) {
-            attacked->attacked(weapon.getDamage(), 0.0, 0, 0, 0, weapon.getStrenght(), 0, 0, power, 3);
-            weapon.setStrenght(weapon.getStrenght() - 4);
-        }
-        else {
-            attacked->setHealth(0);
-            weapon.setStrenght(weapon.getStrenght() - 4);
-            cout << "[Console] Critical damage " << endl;
+        if (weapon.getStrenght() > 0) {
+            if (critical_hit_chance()) {
+                attacked->setHealth(0);
+                weapon.setStrenght(weapon.getStrenght() - 10);
+                std::cout << "[Console] Critical damage " << std::endl;
+            }
+            else {
+                attacked->attacked(weapon.getDamage());
+                weapon.setStrenght(weapon.getStrenght() - 10);
+            }
         }
     };
 
     // Метод получения урона
-    void attacked(double _damage, double _extraDamage, int _time, int _arrows,
-        int _cartridges, int _strenght, int _dexterity, int _technics, int power, int type) override {
-        double tmp;
-        if (type == 1) {
-            _damage += (1.175 * _technics);
-        }
-        else if (type == 3) {
-            _damage = _damage / 100 * _strenght;
-        };
+    void attacked(double _damage) override {
+        _damage -= 0.25 * power;
         if (armor > 0) {
             if (armor < _damage) {
-                tmp = (armor - _damage) * (-1);
+                _damage -= armor;
                 armor = 0;
-                health -= tmp;
+                health -= _damage;
             }
             else {
                 armor -= _damage;
-            };
+            }
         }
         else { health -= _damage; };
     };
 };
+
 
 // Функция тестирования правильности создания персонажей
 //int tests(); (не доделан)
