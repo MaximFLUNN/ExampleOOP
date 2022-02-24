@@ -1,0 +1,10 @@
+﻿  1)-Task-one-main.cpp
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(33,17): warning C4244: =: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(96,17): warning C4244: =: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(108,19): warning C4244: =: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(116,19): warning C4244: =: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(136,23): warning C4244: аргумент: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(136,15): warning C4244: аргумент: преобразование "_longlong_result" в "int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(154,23): warning C4244: аргумент: преобразование "_longlong_result" в "unsigned int", возможна потеря данных
+D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\1)-Task-one-64bit-number\1)-Task-one-main.cpp(154,15): warning C4244: аргумент: преобразование "_longlong_result" в "int", возможна потеря данных
+  1)-Task-one-64bit-number.vcxproj -> D:\Project_station_v3\Project station v2\1)-Task-one-64bit-number\x64\Debug\1)-Task-one-64bit-number.exe
